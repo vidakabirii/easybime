@@ -20,62 +20,138 @@
         <v-col> مشاهده جزییات</v-col>
       </v-row>
     </v-card>
+    <v-card class="registerWrapper">
+      <v-row class="registerHeader">
+        اطلاعات بیمه نامه
+      </v-row>
+      <v-row>
+        ارائه دهنده*
+      </v-row>
+      <v-row class="registerHeader">
+        مشخصات بیمه گذار
+      </v-row>
+      <v-row class="textBoxes">
+        <v-col cols="4">
+          <textInput
+            v-model="newUser.msisdn"
+            :v="newUser.msisdn"
+            label="کد ملی"
+            required
+          />
+        </v-col>
+        <v-col cols="4">
+          <textInput
+            v-model="newUser.msisdn"
+            :v="newUser.msisdn"
+            label="نام"
+            required
+          />
+        </v-col>
+      </v-row>
+      <v-row class="textBoxes">
+        <v-col cols="4">
+          <textInput
+            v-model="newUser.msisdn"
+            :v="newUser.msisdn"
+            label="نام خانوادگی "
+            required
+          />
+        </v-col>
+        <v-col cols="4">
+          <textInput
+            v-model="newUser.msisdn"
+            :v="newUser.msisdn"
+            label="تلفن همراه"
+            required
+          />
+        </v-col>
+      </v-row>
+      <v-row class="textBoxes">
+        <v-col cols="4">
+          <textInput
+            v-model="newUser.msisdn"
+            :v="newUser.msisdn"
+            label=" تلفن ثابت"
+            required
+          />
+        </v-col>
+        <v-col cols="4">
+          <textInput
+            v-model="newUser.msisdn"
+            :v="newUser.msisdn"
+            label="کد پستی"
+            required
+          />
+        </v-col>
+      </v-row>
+      <v-row class="textBoxes">
+        <v-col cols="4">
+          <textInput
+            v-model="newUser.msisdn"
+            :v="newUser.msisdn"
+            label=" نشانی"
+            required
+          />
+        </v-col>
+      </v-row>
+    </v-card>
   </v-container>
 </template>
 
 <script>
-export default {};
+import textInput from "@/components/textInput.vue";
+
+export default {
+  data() {
+    return {
+      newUser: {
+        msisdn: "",
+        name: "",
+        family: "",
+        mobile: null,
+        postalCode: "",
+        address: "",
+      },
+    };
+  },
+  components: {
+    textInput,
+  },
+};
 </script>
 
 <style lang="scss" scoped>
+@import "../assets/css/general.scss";
+
 .container {
-  margin-right: 20px;
-  margin-top: 20px;
   direction: rtl;
 }
-.wrapper {
-  padding: 20px;
-}
-.title {
-  text-align: right;
-  p {
-    display: inline-block;
-    font-size: 24px;
-  }
-  img {
-    width: 20px;
-    display: inline-block;
-    align-self: center;
-    margin-left: 10px;
-  }
-}
-.sort {
-  font-size: 16px;
-  color: #212121;
-}
-.icon {
-  margin-right: -40px;
-  margin-left: -100px;
-}
-.collapseBox {
-  margin-top: 3%;
-  cursor: pointer;
-}
 .plans {
+  background-color: white;
+}
+.registerWrapper {
+  border-radius: 2px;
+  background: #fafafa;
+  border: 1px solid #bdbdbd;
+  margin-top: 2%;
+  padding: 20px;
   div {
-    font-size: 14px;
-    color: #212121;
-    margin-top: 10px;
-    &:nth-child(1),
-    &:nth-child(3) {
-      color: #757575;
+    &:first-of-type {
+      margin-top: 0;
     }
-  }
-  img {
-    width: 32px;
-    height: 32px;
+    margin-top: 40px;
   }
 }
+.textBoxes {
+  div {
+    margin-top: 0;
+  }
+}
+.registerHeader {
+  font-weight: 600;
+  font-size: 20px;
+}
+
 @media (min-width: 1264px) {
   .container {
     max-width: 1480px;
